@@ -34,7 +34,8 @@ M is an integer within the range [1..50,000];
 each element of arrays P, Q is an integer within the range [0..N − 1];
 P[K] ≤ Q[K], where 0 ≤ K < M;
 string S consists only of upper-case English letters A, C, G, T.'''
-# O(N * N)
+
+# O(N * N) My first try on this
 def solution(S, P, Q):
     dict_dna = {'A' : 1, 'C' : 2, 'G' : 3, 'T' : 4}
     answer = [0] * len(P)
@@ -42,14 +43,14 @@ def solution(S, P, Q):
     end_query = max(Q)
     len_query = [0] * (end_query - start_query + 1)
     for ch in range(0, end_query - start_query + 1):
-        len_query[ch] = dict_dna[S[ch + start_query]]
+        len_query[ch] = dict_dna[S[ch + start_query]] # decoding our interval
 
     for i in range(len(P)):
-        answer[i] = min(len_query[P[i] - start_query:Q[i] - start_query + 1])
+        answer[i] = min(len_query[P[i] - start_query:Q[i] - start_query + 1]) # find minimal on each interval
     return answer
 
 # O(N + M)
-# Simple way
+# Simplest way
 def solution(S, P, Q):
     M = len(P)
     answer = []
