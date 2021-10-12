@@ -38,12 +38,13 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000];
 each element of array A is an integer that can have one of the following values: 0, 1.'''
 
-ans = 'https://app.codility.com/demo/results/trainingTCPASJ-YRM/'
+# https://app.codility.com/demo/results/trainingTCPASJ-YRM/
+
 def solution(A):
     seen_cars = 0
     passed_through_seen_cars = 0
     for i in range(len(A) - 1, -1, -1):
-        if A[i]:
+        if A[i]: # Counting only west going cars
             seen_cars += 1
         else:
             passed_through_seen_cars += seen_cars
