@@ -30,16 +30,16 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [0..100,000];
 each element of array A is an integer within the range [0..2,147,483,647].'''
 
-ans = 'https://app.codility.com/demo/results/trainingYCCPRN-XU6/'
+# https://app.codility.com/demo/results/trainingYCCPRN-XU6/
 #O(N*log(N)) or O(N)
-# просто жесть
+
 
 def solution(A):
     N = len(A)
     if N < 2:
         return 0
-    disks_start = [0] * len(A)
-    disks_end = [0] * len(A)
+    disks_start = [0] * len(A) # left point of each circle
+    disks_end = [0] * len(A) # right point of each circle
     disks_count = 0
     intersects = 0
     
@@ -53,7 +53,7 @@ def solution(A):
     end_counter = 0
 
     while start_counter < len(disks_start):
-        if disks_start[start_counter] <= disks_end[end_counter]:
+        if disks_start[start_counter] <= disks_end[end_counter]: # don't forget about 0 radius cases
             intersects += disks_count
             disks_count += 1
             start_counter += 1
