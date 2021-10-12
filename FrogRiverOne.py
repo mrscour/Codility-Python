@@ -40,15 +40,16 @@ Write an efficient algorithm for the following assumptions:
 
 N and X are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..X].'''
+
 def solution(X, A):
     counter = 0
     min_sum = 0
-    length = [1] + [0] * X
+    length = [1] + [0] * X # the path the frog should pass, we should fill it with 1
     for i in A:
-        if length[i] == 0:
+        if length[i] == 0: # it would be enough to have at least 1 leaf
             length[i] = 1
             min_sum += 1
-        if min_sum == X:
+        if min_sum == X: # so if we filled each of our steps by 1 leaf we can finish
             return counter
         counter += 1
 
