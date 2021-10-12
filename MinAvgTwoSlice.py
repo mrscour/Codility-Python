@@ -38,21 +38,23 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−10,000..10,000].'''
 
-ans = 'https://app.codility.com/demo/results/training9W89FW-SA8/'
+# https://app.codility.com/demo/results/training9W89FW-SA8/
 
 def solution(A):
     N = len(A)
     ln_seq = [0] * (N + 1)
     temp_min = (A[0] + A[1]) / 2
     temp_min_index = 0
-    for i in range(1, N + 1):
+    for i in range(1, N + 1): # prefix sum from lesson
         ln_seq[i] = ln_seq[i - 1] + A[i - 1]
-
+    # simply slicing through local sum dividing it by len of the slice
+    # i started from 2 len slice
     for i in range(0, N - 1):
         el = (ln_seq[i + 2] - ln_seq[i]) / 2
         if el < temp_min:
             temp_min = el
             temp_min_index = i
+    # after some experiments found that 3 len slice is enough for this task
     if N > 2:
         for i in range(0, N - 2):
             el = (ln_seq[i + 3] - ln_seq[i]) / 3
