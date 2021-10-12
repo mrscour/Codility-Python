@@ -38,7 +38,7 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [3..100,000];
 each element of array A is an integer within the range [−1,000..1,000].
 '''
-ans = 'https://app.codility.com/demo/results/trainingVNZUE6-TNK/'
+# https://app.codility.com/demo/results/trainingVNZUE6-TNK/
 
 def solution(A):
     A.sort()
