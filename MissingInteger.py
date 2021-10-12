@@ -23,7 +23,7 @@ def solution(A):
         if ord_dict.get(i, '') == '':
             ord_dict[i] = 0
     
-    for i in range(1, len(ord_dict) + 2):
+    for i in range(1, len(ord_dict) + 2): # 2 if missing integer is right after the sequence
         if i not in ord_dict:
             return i
     
