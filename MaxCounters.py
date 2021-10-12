@@ -49,21 +49,23 @@ Write an efficient algorithm for the following assumptions:
 
 N and M are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..N + 1].'''
-ans = 'https://app.codility.com/demo/results/training5K3W6W-5D4/'
+
+# https://app.codility.com/demo/results/training5K3W6W-5D4/
+
 def solution(N, A):
     len_seq = [0] * (N + 1)
     temp_max = 0
-    min_val = 0
+    min_val = 0 # the minimum value that each element in array should have
     for i in A:
         if i == N + 1:
             min_val = temp_max
         else:
             if len_seq[i] < min_val:
-                len_seq[i] = min_val
+                len_seq[i] = min_val # correction to align elements
             len_seq[i] += 1
-            temp_max = ((temp_max + len_seq[i]) + abs(temp_max - len_seq[i]))//2
+            temp_max = ((temp_max + len_seq[i]) + abs(temp_max - len_seq[i]))//2 # just experiment how to find max between 2 values mathematically
             
-    for z in range(len(len_seq)):
+    for z in range(len(len_seq)): # final checking that all elements are at least at our minimum value
         if len_seq[z] < min_val:
             len_seq[z] = min_val
     return len_seq[1:]
