@@ -32,7 +32,7 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [0..100,000];
 each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
 '''
-ans = 'https://app.codility.com/demo/results/trainingZ3XQU9-8D6/'
+# https://app.codility.com/demo/results/trainingZ3XQU9-8D6/
 
 def solution(A):
     A.sort(reverse=True)
