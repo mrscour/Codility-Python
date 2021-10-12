@@ -14,15 +14,17 @@ Write an efficient algorithm for the following assumptions:
 A and B are integers within the range [0..2,000,000,000];
 K is an integer within the range [1..2,000,000,000];
 A ≤ B.'''
-https://app.codility.com/demo/results/trainingSESF82-TQ5/
-# мое решение
+
+# https://app.codility.com/demo/results/trainingSESF82-TQ5/
+
+# own solution
 def solution(A, B, K):
     while A % K:
         A += 1
     return len(range(A, B + K, K)) if not B % K else len(range(A, B, K))
 
 
-# математическое решение, проверка количества делителей
+# mathematical one
 def solution(A, B, K):
     if A % K == 0:  return (B - A) // K + 1
     else:           return (B - (A - A % K )) // K
