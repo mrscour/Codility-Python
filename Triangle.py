@@ -39,8 +39,6 @@ def solution(A):
     N = len(A)
     if N > 2:
         for i in range(N - 2):
-            if i < 0:
-                return 0
             if A[i] + A[i + 1] > A[i + 2]\
             and A[i + 1] + A[i + 2] > A[i]\
             and A[i + 2] + A[i] > A[i + 1]:
