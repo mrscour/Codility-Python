@@ -20,12 +20,17 @@ A ≤ B.'''
 # own solution
 def solution(A, B, K):
     while A % K:
-        A += 1
-    return len(range(A, B + K, K)) if not B % K else len(range(A, B, K))
+        A += 1     
+    if not B % K:
+        return len(range(A, B + K, K))
+    else:
+        return len(range(A, B, K))
 
 
 # mathematical one
 def solution(A, B, K):
-    if A % K == 0:  return (B - A) // K + 1
-    else:           return (B - (A - A % K )) // K
+    if A % K == 0:
+        return (B - A) // K + 1
+    else:
+        return (B - (A - A % K )) // K
 
