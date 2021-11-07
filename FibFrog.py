@@ -64,7 +64,8 @@ def solution(A):
         if A[i] == 0: continue
         temp_result = []
         for jump in fib:
-            if jump > i + 1: break
+            if jump > i + 1:
+                break
             if i - jump in dp:
                 temp_result.append(dp[i - jump] + 1)
         if temp_result: dp[i] = min(temp_result)
